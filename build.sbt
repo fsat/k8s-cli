@@ -9,8 +9,7 @@ scalaVersion := "2.11.11"
 enablePlugins(ScalaNativePlugin, AutomateHeaderPlugin)
 
 libraryDependencies ++= List(
-  Library.scopt,
-  Library.scalaTest % "test"
+  "com.github.scopt"  %%% "scopt"          % Version.scopt
 )
 
 ScalariformKeys.preferences :=

@@ -7,11 +7,12 @@
 import sbt._
 
 object Version {
-  val scopt        = "3.4.0"
+  val scopt        = "3.7.0"
   val scalaTest    = "3.0.1"
 }
 
 object Library {
-  val scopt        = "com.github.scopt"         %% "scopt"          % Version.scopt
-  val scalaTest    = "org.scalatest"            %% "scalatest"      % Version.scalaTest
+  // TODO: declare these library here once we know what to import to enable '%%%' which is required to resolve native:
+  // - scopt
+  // - scalatest
 }
