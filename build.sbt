@@ -1,3 +1,4 @@
+import sbt._
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import de.heikoseeberger.sbtheader.HeaderPattern
 import scalariform.formatter.preferences.AlignSingleLineCaseStatements
@@ -7,6 +8,10 @@ scalaVersion := "2.11.11"
 
 enablePlugins(ScalaNativePlugin, AutomateHeaderPlugin)
 
+libraryDependencies ++= List(
+  Library.scopt,
+  Library.scalaTest % "test"
+)
 
 ScalariformKeys.preferences :=
   ScalariformKeys.preferences.value
