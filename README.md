@@ -18,6 +18,16 @@ On macOs this would mean ensuring XCode is updated to Apple's latest version. Wi
 $ brew install bdw-gc re2
 ```
 
+### Build native Argonaut (Temporarily)
+
+_This step is temporary until Argonaut artefact for Scala Native 0.3 is released_
+
+```bash
+$ git clone https://github.com/argonaut-io/argonaut.git
+$ cd argonaut
+$ sbt argonautNative/publishLocal
+```
+
 ## Building and running
 
 Use the following SBT command to create the native executable:

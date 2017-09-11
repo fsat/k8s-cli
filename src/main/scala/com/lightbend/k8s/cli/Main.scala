@@ -7,11 +7,15 @@
 package com.lightbend.k8s.cli
 
 import scopt.OptionParser
+import argonaut._
+import Argonaut._
 
 object Main {
   case class InputArgs(foo: Option[String] = None)
 
   val defaultInputArgs = InputArgs()
+
+  implicit def inputArgsCodecJson = casecodec1(InputArgs.apply, InputArgs.unapply)("foo")
 
   val parser = new OptionParser[InputArgs]("k8s-cli") {
     head("k8s-cli", "0.1.0")
@@ -25,6 +29,14 @@ object Main {
 
   def run(inputArgs: InputArgs): Unit = {
     println(s"Got input args: $inputArgs")
+
+    val inputArgsJson = inputArgs.asJson
+    println(s"Got input args as Argonaut JSON:")
+    println(inputArgsJson)
+
+    val inputArgsJsonString = inputArgsJson.spaces2
+    println(s"Got input args as JSON string:")
+    println(inputArgsJsonString)
   }
 
   def main(args: Array[String]): Unit = {
