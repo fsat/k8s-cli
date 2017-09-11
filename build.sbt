@@ -10,7 +10,8 @@ enablePlugins(ScalaNativePlugin, AutomateHeaderPlugin)
 
 libraryDependencies ++= List(
   "com.github.scopt"  %%% "scopt"    % "3.7.0",
-  "io.argonaut"       %%% "argonaut" % "6.3-SNAPSHOT"
+  "io.argonaut"       %%% "argonaut" % "6.3-SNAPSHOT",
+  "com.lihaoyi"       %%% "utest"    % "0.4.8" % "test"
 )
 
 ScalariformKeys.preferences :=
@@ -38,3 +39,5 @@ HeaderPlugin.autoImport.headers := Map(
        |""".stripMargin
     )
 )
+
+testFrameworks += new TestFramework("utest.runner.Framework")
