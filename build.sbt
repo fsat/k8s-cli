@@ -8,6 +8,9 @@ scalaVersion := "2.11.11"
 
 enablePlugins(ScalaNativePlugin, AutomateHeaderPlugin)
 
+// Disable GC since the CLI is a short-lived process.
+nativeGC := "none"
+
 libraryDependencies ++= List(
   "com.github.scopt"  %%% "scopt"    % "3.7.0",
   "io.argonaut"       %%% "argonaut" % "6.3-SNAPSHOT",
