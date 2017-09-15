@@ -12,9 +12,12 @@ enablePlugins(ScalaNativePlugin, AutomateHeaderPlugin)
 nativeGC := "none"
 
 libraryDependencies ++= List(
-  "com.github.scopt"  %%% "scopt"    % "3.7.0",
-  "io.argonaut"       %%% "argonaut" % "6.3-SNAPSHOT",
-  "com.lihaoyi"       %%% "utest"    % "0.4.8" % "test"
+  "com.github.scopt"   %%% "scopt"                % "3.7.0",
+  "org.scalaz"         %%% "scalaz-core"          % "7.2.15",
+  "io.argonaut"        %%% "argonaut"             % "6.3-SNAPSHOT",
+  "com.github.xuwei-k" %%% "httpz-native"         % "0.5.2-SNAPSHOT",
+  "com.github.xuwei-k" %%% "httpz-native-client"  % "0.5.2-SNAPSHOT",
+  "com.lihaoyi"        %%% "utest"                % "0.4.8" % "test"
 )
 
 ScalariformKeys.preferences :=

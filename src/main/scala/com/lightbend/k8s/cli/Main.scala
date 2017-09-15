@@ -6,6 +6,8 @@
 
 package com.lightbend.k8s.cli
 
+import httpz.{ Request, Core }
+import httpz.native._
 import scopt.OptionParser
 import argonaut._
 import Argonaut._
@@ -37,6 +39,14 @@ object Main {
     val inputArgsJsonString = inputArgsJson.spaces2
     println(s"Got input args as JSON string:")
     println(inputArgsJsonString)
+
+    println("HTTP request")
+    val request = Request("http://www.example.org")
+    val responseFuture = Core.string(request)
+
+    val result = NativeInterpreter.sequential.empty.run(responseFuture)
+    println("HTTP result:")
+    println(result)
   }
 
   def main(args: Array[String]): Unit = {
